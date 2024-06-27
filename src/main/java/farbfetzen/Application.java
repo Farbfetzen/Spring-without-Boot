@@ -1,16 +1,18 @@
 package farbfetzen;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
 import farbfetzen.service.CourseService;
 
 @ComponentScan("farbfetzen")
+@Slf4j
 public class Application {
 
     public static void main(String[] args) {
         final var context = new AnnotationConfigApplicationContext(Application.class);
         final var courseService = context.getBean("courseService", CourseService.class);
-        System.out.println(courseService.list());
+        logger.info("Courses: {}", courseService.list());
     }
 }
