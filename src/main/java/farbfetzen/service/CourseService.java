@@ -1,29 +1,22 @@
 package farbfetzen.service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import farbfetzen.model.Course;
+import farbfetzen.repository.CourseRepository;
 
 public class CourseService implements CrudService<Course, Integer> {
 
-    private final List<Course> courses;
+    private final CourseRepository courseRepository;
 
-    public CourseService() {
-        courses = new ArrayList<>();
-        final var course = new Course(
-                1,
-                "How to create your first Spring Application (without Spring Boot)",
-                "In this tutorial, you will learn how to create your first Spring Application from scratch without using Spring Boot.",
-                "https://www.youtube.com/watch?v=e8aSyQo0nHo"
-        );
-        courses.add(course);
+    public CourseService(final CourseRepository courseRepository) {
+        this.courseRepository = courseRepository;
     }
 
     @Override
     public List<Course> list() {
-        return courses;
+        return courseRepository.findAll();
     }
 
     @Override
