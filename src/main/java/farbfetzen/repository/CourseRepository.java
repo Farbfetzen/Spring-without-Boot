@@ -3,8 +3,11 @@ package farbfetzen.repository;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import farbfetzen.model.Course;
 
+@Repository
 public class CourseRepository implements CrudRepository<Course> {
 
     @Override

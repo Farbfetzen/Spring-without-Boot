@@ -3,9 +3,12 @@ package farbfetzen.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.stereotype.Service;
+
 import farbfetzen.model.Course;
 import farbfetzen.repository.CourseRepository;
 
+@Service
 public class CourseService implements CrudService<Course, Integer> {
 
     private final CourseRepository courseRepository;
