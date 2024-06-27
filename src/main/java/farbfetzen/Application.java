@@ -6,7 +6,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 import farbfetzen.service.CourseService;
 
-@ComponentScan("farbfetzen")
+@ComponentScan
 @Slf4j
 public class Application {
 
