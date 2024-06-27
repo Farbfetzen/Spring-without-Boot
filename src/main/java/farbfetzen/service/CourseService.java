@@ -34,11 +34,9 @@ public class CourseService implements CrudService<Course, Integer> {
 
     @Override
     public void update(final Course course, final Integer id) {
-
     }
 
     @Override
     public void delete(final Integer id) {
-
     }
 }

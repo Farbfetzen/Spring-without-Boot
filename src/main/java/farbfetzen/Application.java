@@ -10,7 +10,7 @@ import farbfetzen.service.CourseService;
 @Slf4j
 public class Application {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
         final var context = new AnnotationConfigApplicationContext(Application.class);
         final var courseService = context.getBean("courseService", CourseService.class);
         logger.info("Courses: {}", courseService.list());
