@@ -1,8 +1,11 @@
 package farbfetzen;
 
+import farbfetzen.service.CourseService;
+
 public class Application {
 
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        final var courseService = new CourseService();
+        System.out.println(courseService.list());
     }
 }
