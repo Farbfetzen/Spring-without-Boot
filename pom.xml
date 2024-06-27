@@ -7,6 +7,28 @@
     <groupId>farbfetzen</groupId>
     <artifactId>spring-without-boot</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <name>Spring-without-Boot</name>
+    <description>Trying to develop a simple app with Spring but no Spring Boot.</description>
+    <url>https://github.com/Farbfetzen/Spring-without-Boot</url>
+    <developers>
+        <developer>
+            <name>Sebastian Henz</name>
+            <email>farbfetzen@posteo.de</email>
+        </developer>
+    </developers>
+    <scm>
+        <url>https://github.com/Farbfetzen/Spring-without-Boot</url>
+    </scm>
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/Farbfetzen/Spring-without-Boot/issues</url>
+    </issueManagement>
+    <licenses>
+        <license>
+            <name>MIT</name>
+            <url>https://opensource.org/license/mit</url>
+        </license>
+    </licenses>
 
     <parent>
         <groupId>org.springframework</groupId>
