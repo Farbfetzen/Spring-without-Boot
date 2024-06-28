@@ -6,8 +6,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
 
-import farbfetzen.model.Course;
-import farbfetzen.service.CourseService;
+import farbfetzen.course.Course;
+import farbfetzen.course.CourseService;
 
 @ComponentScan
 @Slf4j

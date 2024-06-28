@@ -1,4 +1,4 @@
-package farbfetzen.dao;
+package farbfetzen.course;
 
 import java.util.List;
 
@@ -6,18 +6,16 @@ import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.stereotype.Component;
 
-import farbfetzen.model.Course;
-
 @Component
-public class CourseDao {
+class CourseDao {
 
     private final JdbcClient jdbcClient;
 
-    public CourseDao(final JdbcClient jdbcClient) {
+    CourseDao(final JdbcClient jdbcClient) {
         this.jdbcClient = jdbcClient;
     }
 
-    public void createTable() {
+    void createTable() {
         jdbcClient.sql("""
                 CREATE TABLE course (
                     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -27,11 +25,11 @@ public class CourseDao {
                 )""").update();
     }
 
-    public void deleteTable() {
+    void deleteTable() {
         jdbcClient.sql("DROP TABLE IF EXISTS course").update();
     }
 
-    public int save(final Course course) {
+    int save(final Course course) {
         final var generatedKeyHolder = new GeneratedKeyHolder();
         jdbcClient
                 .sql("INSERT INTO course (title, description, url) VALUES (:title, :description, :url)")
@@ -42,7 +40,7 @@ public class CourseDao {
         return generatedKeyHolder.getKey().intValue();
     }
 
-    public List<Course> findAll() {
+    List<Course> findAll() {
         return jdbcClient.sql("SELECT * FROM course").query(Course.class).list();
     }
 }
