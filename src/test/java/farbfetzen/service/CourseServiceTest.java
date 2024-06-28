@@ -11,8 +11,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import farbfetzen.dao.CourseDao;
 import farbfetzen.model.Course;
-import farbfetzen.repository.CourseRepository;
 
 @ExtendWith(MockitoExtension.class)
 class CourseServiceTest {
@@ -20,14 +20,14 @@ class CourseServiceTest {
     private final static Course testCourse = new Course(1, "Test", "A description.", "http://example.org/");
 
     @Mock
-    private CourseRepository courseRepository;
+    private CourseDao courseDao;
 
     @InjectMocks
     private CourseService courseService;
 
     @Test
     void list() {
-        when(courseRepository.findAll()).thenReturn(List.of(testCourse));
+        when(courseDao.findAll()).thenReturn(List.of(testCourse));
         assertThat(courseService.list()).containsExactly(testCourse);
     }
 }

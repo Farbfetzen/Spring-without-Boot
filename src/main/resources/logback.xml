@@ -26,4 +26,6 @@
         <appender-ref ref="FileAppender" />
     </root>
 
+    <!-- <logger name="org.springframework.jdbc" level="debug" /> -->
+
 </configuration>

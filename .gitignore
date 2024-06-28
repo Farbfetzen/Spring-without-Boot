@@ -3,6 +3,10 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+# H2 database files
+*.mv.db
+*.trace.db
+
 ### IntelliJ IDEA ###
 .idea/
 *.iws

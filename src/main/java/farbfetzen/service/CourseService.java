@@ -5,38 +5,38 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import farbfetzen.dao.CourseDao;
 import farbfetzen.model.Course;
-import farbfetzen.repository.CourseRepository;
 
 @Service
-public class CourseService implements CrudService<Course, Integer> {
+public class CourseService{
 
-    private final CourseRepository courseRepository;
+    private final CourseDao courseDao;
 
-    public CourseService(final CourseRepository courseRepository) {
-        this.courseRepository = courseRepository;
+    public CourseService(final CourseDao courseDao) {
+        this.courseDao = courseDao;
     }
 
-    @Override
+    public void recreateTable() {
+        courseDao.deleteTable();
+        courseDao.createTable();
+    }
+
     public List<Course> list() {
-        return courseRepository.findAll();
+        return courseDao.findAll();
     }
 
-    @Override
-    public Course create(final Course course) {
-        return null;
+    public int create(final Course course) {
+        return courseDao.save(course);
     }
 
-    @Override
     public Optional<Course> get(final Integer id) {
         return Optional.empty();
     }
 
-    @Override
     public void update(final Course course, final Integer id) {
     }
 
-    @Override
     public void delete(final Integer id) {
     }
 }
