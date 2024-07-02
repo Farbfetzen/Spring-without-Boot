@@ -4,9 +4,7 @@ import java.util.List;
 
 import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
-import org.springframework.stereotype.Component;
 
-@Component
 class CourseDao {
 
     private final JdbcClient jdbcClient;

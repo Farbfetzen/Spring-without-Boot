@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="dataSource" class="org.h2.jdbcx.JdbcDataSource">
+        <property name="url" value="jdbc:h2:file:./devDb" />
+    </bean>
+
+    <bean id="jdbcClient" class="org.springframework.jdbc.core.simple.JdbcClient" factory-method="create">
+        <constructor-arg ref="dataSource" />
+    </bean>
+
+    <bean id="courseDao" class="farbfetzen.course.CourseDao">
+        <constructor-arg ref="jdbcClient" />
+    </bean>
+
+    <bean id="courseService" class="farbfetzen.course.CourseService">
+        <constructor-arg ref="courseDao" />
+    </bean>
+
+    <bean id="startupListener" class="farbfetzen.listener.StartupListener">
+        <constructor-arg ref="courseService" />
+    </bean>
+
+</beans>
